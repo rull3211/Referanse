@@ -232,7 +232,7 @@ let guiController = (() =>{
                     </div>`
             }
             document.querySelector(container).insertAdjacentHTML('beforeend', html);
-
+            
         },
 
         deleteItem : ID => { // deletes a containerelement by the ID on the click of a deletebutton
@@ -261,16 +261,17 @@ let golobalController = ((dbCtr, domCtr) =>{ // controlls the two parts of the a
     function addListener(){ // method for submitlistener
         let desc = document.querySelector(DS.inputDescription).value;
         let value = parseInt(document.querySelector(DS.inputValue).value);
-
-        if(document.querySelector(".add__type").selectedIndex == 0){
-            frontend.addItem(backend.addItem("inc", value, desc), "inc");
+        if(desc && value){    
+            if(document.querySelector(".add__type").selectedIndex == 0){
+                frontend.addItem(backend.addItem("inc", value, desc), "inc");
+                }
+            else{
+                frontend.addItem(backend.addItem("exp", value, desc), "exp");
             }
-        else{
-            frontend.addItem(backend.addItem("exp", value, desc), "exp");
-        }
 
-        frontend.updateVisuals(db.budget, db.income, db.expense, db.percentage, db.expCont);
-        frontend.clearFields();
+            frontend.updateVisuals(db.budget, db.income, db.expense, db.percentage, db.expCont);
+            frontend.clearFields();
+        }
     }
 
     function deleteItem(itemID){ // function to delete item both from database and frontend
