@@ -118,7 +118,7 @@ const controller = (()=>{
         fruit = snekWorld[Math.floor(Math.random()*26)][Math.floor(Math.random()*26)];
         fruit.className = "snekSnack";
         if(body.includes(fruit)){
-            fruit.className = "snekBdy"
+            fruit.className = "snekBody"
             setFruit()
         }
         
