@@ -1,25 +1,28 @@
 *{
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
 }
 .sneklaxy{
+    display: grid;
+    grid-template-columns   : 1fr 1fr 1fr;
+}
+
+
+.snekWorld{   
+    
+}
+.snekRow{
     display: flex;
-    justify-content: space-evenly;
 }
-.snekPointContainer{
+.snekRow > div{
+    height: 100%;
     width: 100%;
-    padding: 3px;
-    display: flex;
-    justify-content: flex-end;
+    background-color: rgb(81, 126, 221);
 }
-.snekWorld{
-    background-color: rgb(81, 126, 221);    
-    width: 100%;
-}
-.snekScore{
-    width: 100%;
-}
+/*
 .snekPoints{
+    margin-right: 5px;
+    float: right;
     display:flex;
     height: 22px;
     font-size: 20px;
@@ -27,14 +30,8 @@
     background-color: black;
 }
 
-.snekRow > div{
-    height: 0.7cm;
-    width: 0.7cm;
-    background-color: rgb(81, 126, 221);
-}
-.snekRow{
-    display: flex;
-}
+
+
 
 div .snekHead{
     border-radius: 100%;
@@ -52,4 +49,72 @@ div .snekSnack{
     background-position: center;
     
 }
-   
+
+
+.rightContainer{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr 1fr;
+}
+
+.rightContainerTop{
+    
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    
+}
+.rightContainerBot{
+    padding-top: 30px;
+    display: grid;
+    justify-content: center;
+    align-content: flex-start;
+    width: 100%;
+    height: 100%;
+}
+.controlls{
+    text-align: center;
+    border-style: dashed;
+    height: 22px;
+    width: 66px;
+}
+.desc{
+    display: none;
+    top: 125px;
+    left: 79.8%;
+    width: 200px;
+}
+.snekScores{
+    justify-content: center;
+    text-align: center;
+    border-style: solid;
+    width: 100%;
+    height: auto;
+    
+}
+.controlls:hover .desc{
+    display: flex;
+    background-color: wheat;
+    margin: auto;
+}
+.controlls:hover{
+    width: 205px;
+    height: 116px;
+}
+.snekScores li{
+    list-style: none;
+    display: none;
+}
+.snekScores:hover li{
+    display: block ;
+    width: 100%;
+
+}
+.snekScores:hover{
+    
+}
+*/
+

@@ -21,10 +21,12 @@ const db = (() =>{
 const controller = (()=>{
     let head, dirV, dirH, posY, posX, gameOn, snekWorld, fruit;
     let body = [];
-    let points = 0;   
+    let hiscores = [];
+    let points = 0;
+    let hs = document.querySelector(".snekScores");   
         document.addEventListener("keypress", e => {
             switch(e.key){
-                case"w":
+                case"w" || 38:
                     dirV = -1;
                     dirH = 0;
                     break;
@@ -44,6 +46,10 @@ const controller = (()=>{
             if("wads".includes(e.key) && !gameOn){
                 gameOn = true;
                 setHead();
+                if(fruit){
+                    fruit.className= "snekCube";
+                }
+                setFruit();
                 run();
             }
     })
@@ -125,13 +131,14 @@ const controller = (()=>{
     }
 
     const loose = () => {
-        gameOn = false;
-                
-                body.forEach(e=> {
-                    e.className = "snekCube";
-                });
-                head.className = "snekCube";
-                body=[];
+        gameOn = false;   
+        body.forEach(e=> {
+            e.className = "snekCube";
+        });
+        head.className = "snekCube";
+        body=[];
+        hiscores.push(prompt("Write your name here: ", "Noone: ") +" " + points);
+        hs.insertAdjacentHTML("beforeend", `<li><p>${hiscores[hiscores.length - 1]}</p></li>`);
     }
 
     const addPts = (add) =>{
@@ -140,7 +147,7 @@ const controller = (()=>{
     return{
         init : function(s){
             setWorld(s);
-            setFruit();
+        
         }
     };
 })();
